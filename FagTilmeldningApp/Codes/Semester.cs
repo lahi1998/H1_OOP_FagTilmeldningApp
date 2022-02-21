@@ -8,6 +8,12 @@ namespace FagTilmeldningApp.Codes
 {
     internal class Semester : School
     {
-        string? SemesterNavn;
+        public string? SemesterNavn;
+
+        public Semester()
+        {
+            Console.Write("Angiv Hovedforløb:");
+            SemesterNavn = Console.ReadLine();
+        }
     }
 }

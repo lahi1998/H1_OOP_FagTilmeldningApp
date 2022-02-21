@@ -8,6 +8,12 @@ namespace FagTilmeldningApp.Codes
 {
     internal class School
     {
-        string? SchoolName;
+        public string? SchoolName;
+
+        public School()
+        {
+            Console.Write("Angiv skole:");
+            SchoolName = Console.ReadLine();
+        }
     }
 }
