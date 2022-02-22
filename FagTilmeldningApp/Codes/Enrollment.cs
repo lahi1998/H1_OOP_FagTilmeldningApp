@@ -8,9 +8,9 @@ namespace FagTilmeldningApp.Codes
 {
     internal class Enrollment
     {
-        public string Id { get; set; }
-        public string StudentId { get; set; }
-        public string CourseId { get; set; }
+        public int Id { get; set; }
+        public int StudentId { get; set; }
+        public int CourseId { get; set; }
 
     }
 }
