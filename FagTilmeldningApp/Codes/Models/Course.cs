@@ -8,5 +8,8 @@ namespace FagTilmeldningApp.Codes.Models
 {
     internal class Course
     {
+        public int TeacherID { get; set; }
+        public string Coursename { get; set; }
+        
     }
 }
