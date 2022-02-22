@@ -45,8 +45,10 @@ Semester SM = new();
 int tæller = 0;
 int Nstudentid;
 int Ncourseid;
+string systemsvar;
 string? tjek1, tjek2;
 string tjeksvar = "h";
+//menu + lidt kontrollering om det tal og om de er i systemet
 do
 {
     Console.Clear();
@@ -81,10 +83,15 @@ do
     tjeksvar = (sq.Inputcontrol(t1: tjek1, t2: tjek2));
 
 } while (tjeksvar !="a");
+
+
 Ncourseid = Convert.ToInt32(tjek2);
 Nstudentid = Convert.ToInt32(tjek1);
+Validering q = new();
+systemsvar = (q.Student_course_control(s1: Nstudentid, s2: Ncourseid));
 
-Console.WriteLine(tjek1 + tjek2);
+
+
 
 Enrollment NewEnrollment = new Enrollment() { Id = tæller, StudentId = Nstudentid, CourseId = Ncourseid };
 enrollments.Add(NewEnrollment);
@@ -93,6 +100,8 @@ foreach (Enrollment line in enrollments)
 {
     tæller++;
 }
+
+
 
 
 

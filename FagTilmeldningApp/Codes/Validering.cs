@@ -48,5 +48,23 @@ namespace FagTilmeldningApp.Codes
             }
             return returnsvar;
         }
+
+        public int Student_course_control(int s1, int s2, List<Student> students)
+        {
+            string svar = "y";
+            Student student = students.FirstOrDefault(a => a.Id == Nstudentid);
+            if (student != null)
+            {
+
+            }
+
+            Course course = courses.FirstOrDefault(c => c.Id == Ncourseid);
+            if (course != null)
+            {
+
+            }
+            return svar;
+
+        }
     }
 }
