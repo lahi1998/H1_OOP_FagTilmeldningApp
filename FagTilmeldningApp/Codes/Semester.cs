@@ -12,7 +12,7 @@ namespace FagTilmeldningApp.Codes
 
         public Semester()
         {
-            Console.Write("Angiv Hovedforløb:");
+            Console.Write("Angiv Hovedforløb: ");
             SemesterNavn = Console.ReadLine();
         }
     }

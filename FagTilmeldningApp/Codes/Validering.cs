@@ -10,9 +10,8 @@ namespace FagTilmeldningApp.Codes
     {
 
 
-        
 
-        public string Inputcontrol(string t1, string t2)
+        public string Input_Control(string t1, string t2)
         {
             string tjek1svar = "n", tjek2svar = "n";
             string returnsvar = "h";
@@ -28,7 +27,7 @@ namespace FagTilmeldningApp.Codes
 
             }
 
-            
+            //retursvar valg
             if (tjek1svar == "y" && tjek2svar == "n")
             {
                 returnsvar = "c";
@@ -49,22 +48,61 @@ namespace FagTilmeldningApp.Codes
             return returnsvar;
         }
 
-        public int Student_course_control(int s1, int s2, List<Student> students)
+        public int Student_Course_Control(int s1, int s2, List<Student> students, List<Course> courses)
         {
-            string svar = "y";
-            Student student = students.FirstOrDefault(a => a.Id == Nstudentid);
+
+            
+            string Ssvar = "n", Csvar = "n";
+            int svar = 2;
+            Student student = students.FirstOrDefault(a => a.Id == s1);
             if (student != null)
             {
-
+                Ssvar = "y";
             }
 
-            Course course = courses.FirstOrDefault(c => c.Id == Ncourseid);
+            Course course = courses.FirstOrDefault(c => c.Id == s2);
             if (course != null)
             {
-
+                Csvar = "y";
             }
+            
+            //retursvar valg
+            if (Ssvar == "y" && Csvar == "y")
+            {
+                svar = 1;
+            }
+            if (Ssvar == "n" && Csvar == "n")
+            {
+                svar = 2;
+            }
+            if (Ssvar == "n" && Csvar == "y")
+            {
+                svar = 3;
+            }
+            if (Ssvar == "y" && Csvar == "n")
+            {
+                svar = 4;
+            }
+
+            
+
             return svar;
 
+        }
+
+        public int Control_Enrollments(int e1, int e2, List<Enrollment> enrollments)
+        {
+
+            int tjeksvar1 = 2;
+            foreach (Enrollment line in enrollments)
+            {
+                if (line.StudentId == e1 && line.CourseId == e2)
+                {
+                    tjeksvar1 = 1;
+                }
+            }
+
+            return tjeksvar1;
         }
     }
 }
