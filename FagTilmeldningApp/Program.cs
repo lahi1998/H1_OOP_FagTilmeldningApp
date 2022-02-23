@@ -36,8 +36,8 @@ List<Enrollment> enrollments = new()
 
 
 
-//Fag og forløb linje
-Semester SM = new();
+//parent: school child:semerster grandchild: Uddannelselinje
+Uddannelselinje FM = new();
 
 
 
@@ -72,7 +72,7 @@ start:
             Console.Clear();
             Console.WriteLine("-------------------------------------");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(SM.SchoolName + "," + " " + SM.SemesterNavn + " " + "Fag tilmeldning app");
+            Console.WriteLine(FM.SchoolName + "," + " " + FM.uddannelselinje +"," + " " + FM.SemesterNavn + "Fag tilmeldning app.");
             Console.ForegroundColor= ConsoleColor.White;
             Console.WriteLine("-------------------------------------");
             Console.WriteLine("ingen bogstaver i ID");
