@@ -47,7 +47,7 @@ Uddannelselinje FM = new();
 
 
 
-string flere_elever = "n", elev = null;
+string? flere_elever = "n", elev = null;
 
 do
 {
@@ -72,7 +72,7 @@ start:
             Console.Clear();
             Console.WriteLine("-------------------------------------");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(FM.SchoolName + "," + " " + FM.uddannelselinje +"," + " " + FM.SemesterNavn + "Fag tilmeldning app.");
+            Console.WriteLine(FM.SchoolName + "," + " " + FM.uddannelselinje +"," + " " + FM.SemesterNavn + " " + "Fag tilmeldning app.");
             Console.ForegroundColor= ConsoleColor.White;
             Console.WriteLine("-------------------------------------");
             Console.WriteLine("ingen bogstaver i ID");
