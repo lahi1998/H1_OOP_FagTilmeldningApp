@@ -8,9 +8,9 @@ namespace FagTilmeldningApp.Codes
 {
     internal class Uddannelselinje : Semester
     {
-        public string? uddannelselinje;
+        public string? uddannelselinje { get; set; }
 
-        public Uddannelselinje()
+        public Uddannelselinje(string? uddannelselinje, string? SemesterNavn, string? Schoolname) :base(SemesterNavn, Schoolname)
         {
             Console.Write("Angiv Uddannelselnje: ");
             uddannelselinje = Console.ReadLine();

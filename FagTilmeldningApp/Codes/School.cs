@@ -8,9 +8,9 @@ namespace FagTilmeldningApp.Codes
 {
     internal class School
     {
-        public string? SchoolName;
+        public string? SchoolName {get; set;}
 
-        public School()
+        public School(string? SchoolName)
         {
             Console.Write("Angiv skole: ");
             SchoolName = Console.ReadLine();
