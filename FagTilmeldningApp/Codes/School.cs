@@ -10,7 +10,7 @@ namespace FagTilmeldningApp.Codes
     {
         public string? SchoolName;
 
-        public School()
+        public School(string? SchoolName)
         {
             Console.Write("Angiv skole:");
             SchoolName = Console.ReadLine();
