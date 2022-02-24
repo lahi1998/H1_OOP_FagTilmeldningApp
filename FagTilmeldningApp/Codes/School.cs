@@ -10,8 +10,10 @@ namespace FagTilmeldningApp.Codes
     {
         public string? SchoolName {get; set;}
 
+
         public School(string? SchoolName)
         {
         }
+
     }
 }

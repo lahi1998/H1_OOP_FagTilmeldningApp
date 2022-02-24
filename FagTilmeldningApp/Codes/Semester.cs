@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace FagTilmeldningApp.Codes
 {
-    internal class Semester : School
+    internal  class Semester : School
     {
         public string? SemesterNavn { get; set; }
 
         public Semester(string? SemesterNavn, string? SchoolName) : base(SchoolName)
         {
+            SemesterNavn = SemesterNavn;
+            SchoolName = SchoolName;
         }
+
+      
     }
 }

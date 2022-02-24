@@ -9,10 +9,12 @@ namespace FagTilmeldningApp.Codes
     internal class Uddannelselinje : Semester
     {
         public string? uddannelselinje { get; set; }
-
+        
         public Uddannelselinje(string? uddannelselinje, string? SemesterNavn, string? Schoolname) :base(SemesterNavn, Schoolname)
         {
-
+            uddannelselinje = uddannelselinje;
         }
+
+    
     }
 }
