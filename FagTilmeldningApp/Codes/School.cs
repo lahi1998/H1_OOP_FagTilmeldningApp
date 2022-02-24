@@ -12,8 +12,6 @@ namespace FagTilmeldningApp.Codes
 
         public School(string? SchoolName)
         {
-            Console.Write("Angiv skole: ");
-            SchoolName = Console.ReadLine();
         }
     }
 }
