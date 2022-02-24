@@ -12,8 +12,7 @@ namespace FagTilmeldningApp.Codes
 
         public Uddannelselinje(string? uddannelselinje, string? SemesterNavn, string? Schoolname) :base(SemesterNavn, Schoolname)
         {
-            Console.Write("Angiv Uddannelselnje: ");
-            uddannelselinje = Console.ReadLine();
+
         }
     }
 }

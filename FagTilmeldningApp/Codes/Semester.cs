@@ -12,8 +12,6 @@ namespace FagTilmeldningApp.Codes
 
         public Semester(string? SemesterNavn, string? SchoolName) : base(SchoolName)
         {
-            Console.Write("Angiv Hovedforløb: ");
-            SemesterNavn = Console.ReadLine();
         }
     }
 }

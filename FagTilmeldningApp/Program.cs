@@ -36,8 +36,18 @@ List<Enrollment> enrollments = new()
 
 
 
+Console.Write("Angiv skole: ");
+string SchoolName = Console.ReadLine();
+
+Console.Write("Angiv Hovedforløb: ");
+string SemesterNavn = Console.ReadLine();
+
+
+Console.Write("Angiv Uddannelselnje: ");
+string uddannelselinje = Console.ReadLine();
+
 //parent: school child:semerster grandchild: Uddannelselinje
-Uddannelselinje FM = new();
+Uddannelselinje FM = new(uddannelselinje, SemesterNavn, SchoolName);
 
 
 
