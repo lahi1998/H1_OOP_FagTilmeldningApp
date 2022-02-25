@@ -1,38 +1,37 @@
 ﻿global using FagTilmeldningApp.Codes;
 global using FagTilmeldningApp.Codes.Models;
-
+global using System.Data.SqlClient;
 //Iteration 5
 
 //Lists
 List<Teacher> teachers = new()
 {
-    new Teacher() { Id = 1, FirstName = "Niels", LastName = "Olesen" },
-    new Teacher() { Id = 2, FirstName = "Henrik", LastName = "Paulsen" }
+    new Teacher() { TeacherId = 1, FirstName = "Niels", LastName = "Olesen" },
+    new Teacher() { TeacherId = 2, FirstName = "Henrik", LastName = "Paulsen" }
 
 };
 
 
 List<Student> students = new()
 {
-    new Student() { Id = 1, FirstName = "Martin", LastName = "Jensen" },
-    new Student() { Id = 2, FirstName = "Patrik", LastName = "Nielsen" },
-    new Student() { Id = 3, FirstName = "Susanne", LastName = "Hansen" },
-    new Student() { Id = 4, FirstName = "Thomas", LastName = "Olsen" }
+    new Student() { StudentId = 1, FirstName = "Martin", LastName = "Jensen" },
+    new Student() { StudentId = 2, FirstName = "Patrik", LastName = "Nielsen" },
+    new Student() { StudentId = 3, FirstName = "Susanne", LastName = "Hansen" },
+    new Student() { StudentId = 4, FirstName = "Thomas", LastName = "Olsen" }
 
 };
 
 List<Course> courses = new()
 {
-    new Course() { Id = 1, Coursename = "Grundlæggende programmering", TeacherID = 1 },
-    new Course() { Id = 2, Coursename = "Database programmering", TeacherID = 1 },
-    new Course() { Id = 6, Coursename = "Studieteknik", TeacherID = 1 },
-    new Course() { Id = 7, Coursename = "Clientside programmering", TeacherID = 2 }
+    new Course() { CourseId = 1, Coursename = "Grundlæggende programmering", TeacherID = 1 },
+    new Course() { CourseId = 2, Coursename = "Database programmering", TeacherID = 1 },
+    new Course() { CourseId = 6, Coursename = "Studieteknik", TeacherID = 1 },
+    new Course() { CourseId = 7, Coursename = "Clientside programmering", TeacherID = 2 }
 
 };
 
 List<Enrollment> enrollments = new()
 {
-
 };
 
 
@@ -257,8 +256,8 @@ start:
 
     if (retursvar == 2)
     {
-        Student student = students.FirstOrDefault(a => a.Id == Nstudentid);
-        Course course = courses.FirstOrDefault(b => b.Id == Ncourseid);
+        Student student = students.FirstOrDefault(a => a.StudentId == Nstudentid);
+        Course course = courses.FirstOrDefault(b => b.CourseId == Ncourseid);
 
         elev = (student.FirstName + " " + student.LastName + " " + course.Coursename);
 
