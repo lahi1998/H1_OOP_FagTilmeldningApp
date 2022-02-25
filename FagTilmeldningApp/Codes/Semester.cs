@@ -10,6 +10,7 @@ namespace FagTilmeldningApp.Codes
     {
         public string? SemesterNavn { get; set; }
         public override string? Uddannelseslinje { get; set; }
+        public override string? UddannelseslinjeBeskrivelse { get; set; }
 
         public Semester(string? semesterNavn, string? schoolName) : base(schoolName)
         {
@@ -20,6 +21,12 @@ namespace FagTilmeldningApp.Codes
         public override void SetUddannelseslinje(string uddannelseslinje)
         {
             Uddannelseslinje = uddannelseslinje;
+        }
+
+        public void SetUddannelseslinje(string uddannelseslinje, string uddannelseslinjeBeskrivelse)
+        {
+            Uddannelseslinje = uddannelseslinje;
+            UddannelseslinjeBeskrivelse = uddannelseslinjeBeskrivelse;
         }
     }
 }

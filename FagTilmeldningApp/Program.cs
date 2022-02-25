@@ -46,20 +46,51 @@ string SemesterNavn = Console.ReadLine();
 Console.Write("Angiv Uddannelselnje: ");
 string uddannelselinje = Console.ReadLine();
 
-//parent: school child:semerster grandchild: Uddannelselinje
+
+string? uddannelseslinjeBeskrivelse = null;
+bool exitLoop = false;
+while (!exitLoop)
+{
+    Console.WriteLine();
+    Console.WriteLine("Ønsker du at angiv en kort beskrivelse af uddannelseslinje: ");
+    Console.WriteLine("1) Ja");
+    Console.WriteLine("2) Nej");
+    Console.Write("Vælg 1 eller 2: ");
+    switch ((Console.ReadKey()).Key)
+    {
+        case ConsoleKey.D1:
+            Console.WriteLine();
+            Console.WriteLine("Angiv kort beskrivelse af uddannelseslinje: ");
+            uddannelseslinjeBeskrivelse = Console.ReadLine();
+            exitLoop = true;
+            break;
+        case ConsoleKey.D2:
+            exitLoop = true;
+            break;
+        default:
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Forkert valgt, prøv igen: ");
+            Console.ForegroundColor = ConsoleColor.White;
+            break;
+    }
+}
+
+//parent: school child:semerster
 Semester FM = new(SemesterNavn, SchoolName);
-FM.SetUddannelseslinje(uddannelselinje);
+if (uddannelseslinjeBeskrivelse != null)
+    FM.SetUddannelseslinje(uddannelselinje, uddannelseslinjeBeskrivelse);
+else
+    FM.SetUddannelseslinje(uddannelselinje);
 
 
 
-
-
-
-
-
-
+//indsæt elever i kurserne;
 string? flere_elever = "n", elev = null;
-
 do
 {
 start:
@@ -69,22 +100,21 @@ start:
     int tæller = 0, tæller1 = 0, tæller2 = 0, tæller3 = 0;
 
     string? tjek1, tjek2;
-    string tjeksvar = "?";
-
+    string? tjeksvar = "?";
 
     //menu + lidt kontrollering om det tal og om de er i systemet
     do
     {
-
-
         do
         {
             //menu
             Console.Clear();
             Console.WriteLine("-------------------------------------");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(FM.SchoolName + "," + " " + uddannelselinje +"," + " " + FM.SemesterNavn + " " + "Fag tilmeldning app.");
-            Console.ForegroundColor= ConsoleColor.White;
+            Console.WriteLine(FM.SchoolName + "," + " " + uddannelselinje + "," + " " + FM.SemesterNavn + " " + "Fag tilmeldning app.");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("[ " + uddannelseslinjeBeskrivelse + " ]");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("-------------------------------------");
             Console.WriteLine("ingen bogstaver i ID");
             Console.WriteLine("-------------------------------------");
@@ -95,7 +125,7 @@ start:
                 Console.WriteLine(elev);
                 Console.WriteLine("-------------------------------------");
 
-            }    
+            }
 
             tæller = 0;
             tæller1 = 0;
@@ -146,7 +176,7 @@ start:
             tjek1 = Console.ReadLine();
 
             Console.SetCursorPosition(0, 17);
-            Console.Write("indsæt hovedforløb id: ");
+            Console.Write("indsæt kursus id: ");
             tjek2 = Console.ReadLine();
 
             // tjekker om den tal
@@ -230,7 +260,7 @@ start:
         Course course = courses.FirstOrDefault(b => b.Id == Ncourseid);
 
         elev = (student.FirstName + " " + student.LastName + " " + course.Coursename);
-        
+
     }
 
 
@@ -238,12 +268,93 @@ start:
     Enrollment NewEnrollment = new Enrollment() { Id = tæller, StudentId = Nstudentid, CourseId = Ncourseid };
     enrollments.Add(NewEnrollment);
 
-    Console.WriteLine("");
-    Console.Write(" vil du tilføje flere elever til hovedforløb y/n: ");
-    flere_elever = Console.ReadLine();
+
+    Console.WriteLine();
+    Console.WriteLine("vil du tilføje flere elever?");
+    Console.WriteLine("1) Ja");
+    Console.WriteLine("2) Nej");
+    Console.Write("Vælg 1 eller 2: ");
+    switch ((Console.ReadKey()).Key)
+    {
+        case ConsoleKey.D1:
+
+            flere_elever = "y";
+            break;
+        case ConsoleKey.D2:
+            flere_elever = "n";
+            //menu
+            Console.Clear();
+            Console.WriteLine("-------------------------------------");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(FM.SchoolName + "," + " " + uddannelselinje + "," + " " + FM.SemesterNavn + " " + "Fag tilmeldning app.");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("[ " + uddannelseslinjeBeskrivelse + " ]");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("ingen bogstaver i ID");
+            Console.WriteLine("-------------------------------------");
+
+            if (elev != null)
+            {
+                Console.SetCursorPosition(0, 12);
+                Console.WriteLine(elev);
+                Console.WriteLine("-------------------------------------");
+
+            }
+
+            tæller = 0;
+            tæller1 = 0;
+            tæller2 = 0;
+            tæller3 = 0;
+
+
+            foreach (Enrollment line in enrollments)
+            {
+                if (line.CourseId == 1)
+                {
+                    tæller++;
+                }
+            }
+            foreach (Enrollment line in enrollments)
+            {
+                if (line.CourseId == 2)
+                {
+                    tæller1++;
+                }
+            }
+            foreach (Enrollment line in enrollments)
+            {
+
+                if (line.CourseId == 6)
+                {
+                    tæller2++;
+                }
+            }
+            foreach (Enrollment line in enrollments)
+            {
+                if (line.CourseId == 7)
+                {
+                    tæller3++;
+                }
+            }
+
+            Console.SetCursorPosition(0, 7);
+            Console.WriteLine(tæller + " " + "Grundlæggende programmering");
+            Console.WriteLine(tæller1 + " " + "Database programmering");
+            Console.WriteLine(tæller2 + " " + "Studieteknik");
+            Console.WriteLine(tæller3 + " " + "Clientside programmering");
+
+            Console.ReadKey();
+            break;
+
+    }
+
 
 } while (flere_elever == "y");
 
 
-        Console.ReadKey();
+
+
+Console.ReadKey();
+
 
