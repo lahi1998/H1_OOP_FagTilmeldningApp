@@ -4,36 +4,12 @@ global using System.Data.SqlClient;
 //Iteration 5
 
 //Lists
-List<Teacher> teachers = new()
-{
-    new Teacher() { TeacherId = 1, FirstName = "Niels", LastName = "Olesen" },
-    new Teacher() { TeacherId = 2, FirstName = "Henrik", LastName = "Paulsen" }
-
-};
-
-
-List<Student> students = new()
-{
-    new Student() { StudentId = 1, FirstName = "Martin", LastName = "Jensen" },
-    new Student() { StudentId = 2, FirstName = "Patrik", LastName = "Nielsen" },
-    new Student() { StudentId = 3, FirstName = "Susanne", LastName = "Hansen" },
-    new Student() { StudentId = 4, FirstName = "Thomas", LastName = "Olsen" }
-
-};
-
-List<Course> courses = new()
-{
-    new Course() { CourseId = 1, Coursename = "Grundlæggende programmering", TeacherID = 1 },
-    new Course() { CourseId = 2, Coursename = "Database programmering", TeacherID = 1 },
-    new Course() { CourseId = 6, Coursename = "Studieteknik", TeacherID = 1 },
-    new Course() { CourseId = 7, Coursename = "Clientside programmering", TeacherID = 2 }
-
-};
-
-List<Enrollment> enrollments = new()
-{
-};
-
+DatabaseHandler dBHandler = new DatabaseHandler();
+string? errorMsg = null;
+List<Teacher>? teachers = null;
+List<Course>? courses = null;
+List<Student>? students = null;
+List<Enrollment>? enrollments = null;
 
 
 Console.Write("Angiv skole: ");
