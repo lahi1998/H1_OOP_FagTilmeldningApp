@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace FagTilmeldningApp.Codes
 {
-    internal class School
+    internal abstract class School
     {
-        public string? SchoolName {get; set;}
+        public string? SchoolName { get; set; }
 
+        public abstract string? Uddannelseslinje { get; set; }
 
-        public School(string? SchoolName)
+        public School(string? schoolName)
         {
+            SchoolName = schoolName;
         }
 
+        public abstract void SetUddannelseslinje(string uddannelseslinje);
     }
 }

@@ -47,7 +47,8 @@ Console.Write("Angiv Uddannelselnje: ");
 string uddannelselinje = Console.ReadLine();
 
 //parent: school child:semerster grandchild: Uddannelselinje
-Uddannelselinje FM = new(uddannelselinje, SemesterNavn, SchoolName);
+Semester FM = new(SemesterNavn, SchoolName);
+FM.SetUddannelseslinje(uddannelselinje);
 
 
 
@@ -82,7 +83,7 @@ start:
             Console.Clear();
             Console.WriteLine("-------------------------------------");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(FM.SchoolName + "," + " " + FM.uddannelselinje +"," + " " + FM.SemesterNavn + " " + "Fag tilmeldning app.");
+            Console.WriteLine(FM.SchoolName + "," + " " + uddannelselinje +"," + " " + FM.SemesterNavn + " " + "Fag tilmeldning app.");
             Console.ForegroundColor= ConsoleColor.White;
             Console.WriteLine("-------------------------------------");
             Console.WriteLine("ingen bogstaver i ID");
